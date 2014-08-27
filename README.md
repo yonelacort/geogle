@@ -1,12 +1,17 @@
-# GeoGoogle
+# Geogle
 
-TODO: Write a gem description
+Still in development. Ruby wrapper for the Geocoding service provided from the Google Maps API.
+
+
+Documentation
+https://developers.google.com/maps/documentation/geocoding/
+
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'geo_google'
+    gem 'geogle'
 
 And then execute:
 
@@ -14,11 +19,46 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install geo_google
+    $ gem install geogle
 
 ## Usage
 
-TODO: Write usage instructions here
+When creating the Geogle::Client instance you can pass:
+
+* sensor: true or false (false by default)
+* language: ("en" by default).
+
+In case you wanna use Google Maps API for Business, you'll need to pass the following attributes in order to sign the URL.
+* client_id: ID of the client. It starts with "gme-" prefix.
+* crypto_key: Criptographic key.
+
+Here's more information about Google Maps API for Business:
+https://developers.google.com/maps/documentation/business/webservices
+
+# Geocode by address with non-Business account
+----------------------------------------------
+
+  $ client = Geogle::Client.new({ sensor: false, language: "es" })
+  $ client.address("Blasco Ibañez, Valencia")
+
+# Geocode by address making use of the components
+-------------------------------------------------
+
+  $ client = Geogle::Client.new({ sensor: false, language: "es" })
+  $ components = { country: 'ES' }
+  $ client.address("Blasco Ibañez, Valencia", components)
+
+  Available components to be used can be found here:
+  https://developers.google.com/maps/documentation/geocoding/#ComponentFiltering
+
+# Reverse geocode by geo-coordinates with Business account
+----------------------------------------------------------
+
+  $ client = Geogle::Client.new({ client_id: "gme-client-id", crypto_key: "8as-vURkasdasd" })
+  $ Geogle::Client.new.latlng(39.5073225, -0.2914778)
+
+  The signature required to do the request will be included in the URL.
+
 
 ## Contributing
 

@@ -1,0 +1,6 @@
+require_relative "model/address"
+require_relative "model/area"
+require_relative "model/coordinates"
+require_relative "model/geometry"
+require_relative "model/place"
+require_relative "model/places"
