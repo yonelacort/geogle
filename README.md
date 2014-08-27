@@ -1,6 +1,6 @@
 # Geogle
 
-[![wercker status](https://app.wercker.com/status/53fe5a36bb237fab11000ef7/m/ "wercker status")](https://app.wercker.com/project/bykey/53fe5a36bb237fab11000ef7)
+[![wercker status](https://app.wercker.com/status/6122e4f0966ee255949e2eb465aefd10/m "wercker status")](https://app.wercker.com/project/bykey/6122e4f0966ee255949e2eb465aefd10)
 
 Still in development. Ruby wrapper for the Geocoding service provided from the Google Maps API.
 
