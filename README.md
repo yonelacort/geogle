@@ -1,12 +1,10 @@
 # Geogle
 
+Still in development!
+
 [![wercker status](https://app.wercker.com/status/6122e4f0966ee255949e2eb465aefd10/m "wercker status")](https://app.wercker.com/project/bykey/6122e4f0966ee255949e2eb465aefd10)
 
-Still in development. Ruby wrapper for the Geocoding service provided from the Google Maps API.
-
-
-Documentation
-https://developers.google.com/maps/documentation/geocoding/
+Ruby wrapper for the Geocoding and Directions services provided from the Google Maps API.
 
 
 ## Installation
@@ -25,6 +23,10 @@ Or install it yourself as:
 
 ## Usage
 
+### Geocoding
+Google geocoding documentation:
+https://developers.google.com/maps/documentation/geocoding/
+
 When creating the Geogle::Client instance you can pass:
 
 * sensor: true or false (false by default)
@@ -37,12 +39,12 @@ In case you wanna use Google Maps API for Business, you'll need to pass the foll
 Here's more information about Google Maps API for Business:
 https://developers.google.com/maps/documentation/business/webservices
 
-### Geocode by address with non-Business account
+#### Geocode by address with non-Business account
 
     $ client = Geogle::Client.new({ sensor: false, language: "es" })
     $ client.address("Blasco Ibañez, Valencia")
 
-### Geocode by address making use of the components
+#### Geocode by address making use of the components
 
     $ client = Geogle::Client.new({ sensor: false, language: "es" })
     $ components = { country: 'ES' }
@@ -51,12 +53,15 @@ https://developers.google.com/maps/documentation/business/webservices
   Available components to be used can be found here:
   https://developers.google.com/maps/documentation/geocoding/#ComponentFiltering
 
-### Using a business account
+#### For Business accounts
 
     $ client = Geogle::Client.new({ client_id: "gme-client-id", crypto_key: "crypto-key" })
     $ Geogle::Client.new.latlng(39.5073225, -0.2914778)
 
   The signature required to do the request will be included in the URL.
+
+### Directions
+Directions service is still in development
 
 
 ## Contributing
