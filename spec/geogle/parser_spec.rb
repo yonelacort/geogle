@@ -1,21 +1,20 @@
 describe 'Parser' do
-    let(:response) do
+    let(:places) do
       VCR.use_cassette('geocode_by_latlng') do
         Geogle::Client.new.latlng(39.4699075, -0.3762881)
       end
     end
 
     it "returns an array of Geogle::Model::Places" do
-      expect(response).to be_kind_of(Geogle::Model::Places)
-      expect(response.places).to be_kind_of(Array)
+      expect(places).to be_kind_of(Array)
     end
 
     it "each element is Geogle::Model::Place" do
-      expect(response.places.first).to be_kind_of(Geogle::Model::Place)
+      expect(places.first).to be_kind_of(Geogle::Model::Place)
     end
 
     describe "place" do
-      let(:place) { response.places.first }
+      let(:place) { places.first }
 
       it "geo_location" do
         expect(place.geo_location.to_s).to eq("39.4701016,-0.3761823")

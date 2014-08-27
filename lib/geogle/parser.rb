@@ -5,11 +5,10 @@ module Geogle
     extend self
 
     def places(results)
-      return [] if blank?(results)
-      places = results.collect do |result|
+      return [] if results.nil?
+      results.collect do |result|
         Parser.place(result)
       end
-      Model::Places.new(places: places)
     end
 
     def place(place)
