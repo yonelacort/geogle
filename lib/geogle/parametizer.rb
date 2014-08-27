@@ -10,13 +10,14 @@ module Geogle
     def address(address, components = {})
       options = { }
       options[:address]    = address
+      options[:language]   = @language
       options[:components] = components(components) unless components.empty?
       options[:sensor]     = @sensor
       options
     end
 
     def latlng(lat, lng)
-      { latlng: "#{lat},#{lng}", sensor: @sensor }
+      { latlng: "#{lat},#{lng}", language: @language, sensor: @sensor }
     end
 
     private
