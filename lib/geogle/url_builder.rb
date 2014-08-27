@@ -7,16 +7,14 @@ require 'hmac-sha1'
 
 module Geogle
   class UrlBuilder
-    BASE           = "https://maps.googleapis.com"
-    GEOCODE_URL    = "#{BASE}/maps/api/geocode/json"
-
-    def initialize(params = {})
+    def initialize(url, params = {})
+      @url        = url
       @client_id  = params[:client_id]
       @crypto_key = params[:crypto_key]
     end
 
     def build(params)
-      uri = URI(GEOCODE_URL)
+      uri = URI(@url)
       uri.query = URI.encode_www_form(params)
       return sign(uri) if is_business?
       uri

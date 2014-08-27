@@ -13,8 +13,8 @@ module Geogle
 
     protected
 
-    def request(params)
-      response = @conn.get(UrlBuilder.new(@args).build(params))
+    def request(url, params)
+      response = @conn.get(UrlBuilder.new(url, @args).build(params))
       body = JSON.parse(response.body)
       ErrorHandler.check(body['status'])
       body

@@ -13,7 +13,7 @@ module Geogle
     private
 
     def executor(method, arg1, arg2)
-      body = request(@parametizer.send(method, arg1, arg2))
+      body = request(URL::GEOCODE, @parametizer.send(method, arg1, arg2))
       Parser.places(body["results"])
     end
   end

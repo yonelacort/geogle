@@ -1,5 +1,11 @@
-require_relative "model/address"
-require_relative "model/area"
-require_relative "model/coordinates"
-require_relative "model/geometry"
-require_relative "model/place"
+# encoding: UTF-8
+
+module Geogle
+  module Model
+    require "geogle/model/address"
+    require "geogle/model/area"
+    require "geogle/model/coordinates"
+    require "geogle/model/geometry"
+    require "geogle/model/place"
+  end
+end
