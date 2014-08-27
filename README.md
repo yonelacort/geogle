@@ -35,12 +35,12 @@ In case you wanna use Google Maps API for Business, you'll need to pass the foll
 Here's more information about Google Maps API for Business:
 https://developers.google.com/maps/documentation/business/webservices
 
-## Geocode by address with non-Business account
+### Geocode by address with non-Business account
 
     $ client = Geogle::Client.new({ sensor: false, language: "es" })
     $ client.address("Blasco Ibañez, Valencia")
 
-## Geocode by address making use of the components
+### Geocode by address making use of the components
 
     $ client = Geogle::Client.new({ sensor: false, language: "es" })
     $ components = { country: 'ES' }
@@ -49,10 +49,10 @@ https://developers.google.com/maps/documentation/business/webservices
   Available components to be used can be found here:
   https://developers.google.com/maps/documentation/geocoding/#ComponentFiltering
 
-## Using a business account
+### Using a business account
 
-  $ client = Geogle::Client.new({ client_id: "gme-client-id", crypto_key: "8as-vURkasdasd" })
-  $ Geogle::Client.new.latlng(39.5073225, -0.2914778)
+    $ client = Geogle::Client.new({ client_id: "gme-client-id", crypto_key: "crypto-key" })
+    $ Geogle::Client.new.latlng(39.5073225, -0.2914778)
 
   The signature required to do the request will be included in the URL.
 

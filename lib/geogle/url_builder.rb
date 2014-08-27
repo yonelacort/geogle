@@ -18,9 +18,38 @@ module Geogle
     def build(params)
       uri = URI(GEOCODE_URL)
       uri.query = URI.encode_www_form(params)
+      return sign(uri) if is_business?
       uri
     end
 
-    # TODO: Sign url for business
+    private
+
+    def sign(url)
+      url_to_sign = "#{url.path}?client=#{@client_id}&#{url.query}"
+      raw_key = url_safe_base64_decode(@crypto_key)
+
+      # create a signature using the cryptographic key and the URL
+      sha1 = HMAC::SHA1.new(raw_key)
+      sha1 << url_to_sign
+      raw_signature = sha1.digest()
+
+      # encode the signature into base64 for url use form.
+      signature =  url_safe_base64_encode(raw_signature)
+      signed = url.scheme+"://"+ url.host + url_to_sign + "&signature=#{signature}"
+      byebug
+      signed
+    end
+
+    def url_safe_base64_decode(base64_string)
+      return Base64.decode64(base64_string.tr('-_','+/'))
+    end
+
+    def url_safe_base64_encode(raw)
+      return Base64.encode64(raw).tr('+/','-_')
+    end
+
+    def is_business?
+      @client_id && @crypto_key
+    end
   end
 end
