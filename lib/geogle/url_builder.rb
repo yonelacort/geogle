@@ -35,9 +35,7 @@ module Geogle
 
       # encode the signature into base64 for url use form.
       signature =  url_safe_base64_encode(raw_signature)
-      signed = url.scheme+"://"+ url.host + url_to_sign + "&signature=#{signature}"
-      byebug
-      signed
+      url.scheme+"://"+ url.host + url_to_sign + "&signature=#{signature}"
     end
 
     def url_safe_base64_decode(base64_string)
