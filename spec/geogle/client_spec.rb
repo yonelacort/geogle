@@ -1,8 +1,8 @@
-describe Geogle::Client do
+describe Geogle::Geocoder do
   describe 'searching by address' do
     let(:places) do
       VCR.use_cassette('geocode_by_address') do
-        Geogle::Client.new.address('Valencia', { country: 'ES' })
+        described_class.new.address('Valencia', { country: 'ES' })
       end
     end
 
@@ -14,7 +14,7 @@ describe Geogle::Client do
   describe 'searching by latlng' do
     let(:places) do
       VCR.use_cassette('geocode_by_latlng') do
-        Geogle::Client.new.latlng(39.4699075, -0.3762881)
+        described_class.new.latlng(39.4699075, -0.3762881)
       end
     end
 

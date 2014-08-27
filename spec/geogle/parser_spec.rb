@@ -1,7 +1,7 @@
 describe 'Parser' do
     let(:places) do
       VCR.use_cassette('geocode_by_latlng') do
-        Geogle::Client.new.latlng(39.4699075, -0.3762881)
+        Geogle::Geocoder.new.latlng(39.4699075, -0.3762881)
       end
     end
 
