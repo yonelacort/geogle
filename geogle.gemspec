@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["yonelacort@gmail.com"]
   spec.description   = %q{Ruby wrapper for Google MAPS API V3 geocode interface}
   spec.summary       = %q{Provides a Ruby interface to geocode requests to Google Maps API V3 and parse the response}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/yonelacort/geogle"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
