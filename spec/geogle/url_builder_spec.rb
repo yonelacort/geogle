@@ -27,7 +27,7 @@ describe Geogle::UrlBuilder do
     end
 
     it "the built url contains a query param signature" do
-      expect(built_url).to eq("https://www.foo.com?client=gme-clientid&address=Street+FooBar&language=de&sensor=true&signature=1klekRivPNXr3vOpOixX16LNGuI=\n")
+      expect(built_url.to_s).to eq("https://www.foo.com?client=gme-clientid&address=Street+FooBar&language=de&sensor=true&signature=1klekRivPNXr3vOpOixX16LNGuI=")
     end
   end
 end

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://maps.googleapis.com/maps/api/geocode/json?client=gme-foo&language=en&latlng=39.4699075,-0.3762881&sensor=false&signature=hDQSukmnhjyDe6y81ph3C_tbs_M=%0A
+    uri: https://maps.googleapis.com/maps/api/geocode/json?client=gme-foo&language=en&latlng=39.4699075,-0.3762881&sensor=false&signature=hDQSukmnhjyDe6y81ph3C_tbs_M=
     body:
       encoding: US-ASCII
       string: ''
