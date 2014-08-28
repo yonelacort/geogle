@@ -5,15 +5,16 @@ require "net/http"
 
 module Geogle
   class Base
-    def initialize(args = {})
-      @args        = args
-      @parametizer = Parametizer.new(args)
+    def initialize(settings = {})
+      @settings    = settings
+      @parametizer = Parametizer.new(settings)
+      # @raw         = settings[:raw] || false
     end
 
     protected
 
     def request(url, params)
-      uri = UrlBuilder.new(url, @args).build(params)
+      uri = UrlBuilder.new(url, @settings).build(params)
       response = Net::HTTP.get_response(uri)
       raise InvalidKeyError if response.code == "403"
       body = JSON.parse(response.body)

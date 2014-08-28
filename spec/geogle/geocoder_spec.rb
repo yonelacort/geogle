@@ -9,6 +9,10 @@ describe Geogle::Geocoder do
     it "returns an array" do
       expect(places).to be_kind_of(Array)
     end
+
+    it "each element is Geogle::Model::Place" do
+        expect(places.first).to be_kind_of(Geogle::Model::Place)
+      end
   end
 
   describe 'searching with a non-default locale' do
@@ -21,6 +25,10 @@ describe Geogle::Geocoder do
     it "returns an array" do
       expect(places).to be_kind_of(Array)
     end
+
+    it "each element is Geogle::Model::Place" do
+        expect(places.first).to be_kind_of(Geogle::Model::Place)
+      end
   end
 
   describe 'searching by latlng' do

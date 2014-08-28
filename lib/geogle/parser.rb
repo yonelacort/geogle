@@ -5,20 +5,25 @@ module Geogle
     extend self
 
     def places(results)
-      return [] if results.nil?
-      results.collect do |result|
-        Parser.place(result)
-      end
+      results.collect { |result| place(result) }
+    end
+
+    def routes(results)
+      results.collect { |result| route(result) }
+    end
+
+    private
+
+    def route(route)
+      Model::Route.new(route)
     end
 
     def place(place)
       Model::Place.new({
-        address: address(place["address_components"], place["formatted_address"]),
-        geometry: geometry(place["geometry"]),
+        address:  address(place["address_components"], place["formatted_address"]),
+        geometry: Model::Geometry.new(place["geometry"]),
       })
     end
-
-    private
 
     def address(components, formatted_address)
       Model::Address.new({
@@ -32,32 +37,6 @@ module Geogle
         area_level_2_code: address_component(components, "short_name", "administrative_area_level_2"),
         country:           address_component(components, "long_name", "country"),
         country_code:      address_component(components, "short_name", "country"),
-      })
-    end
-
-    def geometry(geometry)
-      return nil if blank?(geometry)
-      Model::Geometry.new({
-        location:      coordinates(geometry["location"]),
-        location_type: geometry["location_type"],
-        bounds:        area(geometry["bounds"]),
-        viewport:      area(geometry["viewport"]),
-      })
-    end
-
-    def coordinates(coordinates)
-      return nil if blank?(coordinates)
-      Model::Coordinates.new({
-        lat: coordinates["lat"],
-        lng: coordinates["lng"],
-      })
-    end
-
-    def area(area)
-      return nil if blank?(area)
-      Model::Area.new({
-        northeast: coordinates(area["northeast"]),
-        southwest: coordinates(area["southwest"]),
       })
     end
 

@@ -1,8 +1,8 @@
 # encoding: UTF-8
 
 require 'virtus'
-require_relative 'address'
-require_relative 'geometry'
+require 'geogle/model/address'
+require 'geogle/model/geometry'
 
 module Geogle
   module Model
