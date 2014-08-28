@@ -174,19 +174,16 @@ describe 'Parser' do
           expect(route.summary).to eq("A-3")
         end
 
-        it "overview_polyline" do
+        describe "overview_polyline" do
           pending
-          # expect(route.overview_polyline).to eq()
-          # expect(route.overview_polyline["points"]).to eq()
         end
 
         it "copyrights" do
           expect(route.copyrights).to eq("Map data ©2014 Google, basado en BCN IGN España")
         end
 
-        it "warnings" do
+        describe "warnings" do
           pending
-          # expect(route.warnings).to be_kind_of([])
         end
 
         it "waypoint_order" do

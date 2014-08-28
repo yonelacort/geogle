@@ -108,7 +108,22 @@ client.latlng(39.5073225, -0.2914778)
   The signature required to do the request will be included in the URL.
 
 ### Directions
-Directions service is still in development
+
+Still in development!
+
+## Search using address names for origin and destination
+
+```ruby
+client = Geogle::Directions.new
+client.search("Berlin", "Munich", { region: "de" })
+```
+
+## Search using geo-locations for origin and destination
+
+```ruby
+client = Geogle::Directions.new
+client.search("39.4699889,-0.3759178", "40.4167158,-3.7037799")
+```
 
 
 ## Contributing
