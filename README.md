@@ -75,28 +75,37 @@ Both methods return an array of Geogle::Model::Place. Each place is composed by:
     * **country_code**: String
     * **formatted**: String
 
+
 ### By address without an account
 
-    $ client = Geogle::Geocoder.new({ sensor: false, language: "es" })
-    $ client.address("Blasco Ibañez, Valencia")
+```ruby
+client = Geogle::Geocoder.new({ sensor: false, language: "es" })
+client.address("Blasco Ibañez, Valencia")
+```
 
 ### By address making use of the components
 
-    $ client = Geogle::Geocoder.new({ sensor: false, language: "es" })
-    $ components = { country: 'ES' }
-    $ client.address("Blasco Ibañez, Valencia", components)
+```ruby
+client = Geogle::Geocoder.new({ sensor: false, language: "es" })
+components = { country: 'ES' }
+client.address("Blasco Ibañez, Valencia", components)
+```
 
   Available components to be used can be found here:
   https://developers.google.com/maps/documentation/geocoding/#ComponentFiltering
 
 ### Reverse geocoding (by latitude and longitude)
 
-    $ Geogle::Geocoder.new.latlng(39.5073225, -0.2914778)
+```ruby
+Geogle::Geocoder.new.latlng(39.5073225, -0.2914778)
+```
 
 ### Using a business account
 
-    $ client = Geogle::Geocoder.new({ client_id: "gme-client-id", crypto_key: "crypto-key" })
-    $ client.latlng(39.5073225, -0.2914778)
+```ruby
+client = Geogle::Geocoder.new({ client_id: "gme-client-id", crypto_key: "crypto-key" })
+client.latlng(39.5073225, -0.2914778)
+```
 
   The signature required to do the request will be included in the URL.
 
