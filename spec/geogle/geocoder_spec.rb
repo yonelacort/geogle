@@ -11,6 +11,18 @@ describe Geogle::Geocoder do
     end
   end
 
+  describe 'searching with a non-default locale' do
+    let(:places) do
+      VCR.use_cassette('geocode_by_address_DE') do
+        described_class.new(language: "de").address('Berlin', { country: 'DE' })
+      end
+    end
+
+    it "returns an array" do
+      expect(places).to be_kind_of(Array)
+    end
+  end
+
   describe 'searching by latlng' do
     let(:places) do
       VCR.use_cassette('geocode_by_latlng') do
@@ -30,6 +42,19 @@ describe Geogle::Geocoder do
       it "an exception is raised" do
         expect{ places }.to raise_error(Geogle::RequestDeniedError)
       end
+    end
+  end
+
+  describe "when using non-valid business credentials" do
+    let(:places) do
+      VCR.use_cassette('geocode_by_latlng_invalid_business') do
+        geocoder = described_class.new(client_id: "gme-foo", crypto_key: "bar")
+        geocoder.latlng(39.4699075, -0.3762881)
+      end
+    end
+
+    it "an exception InvalidKeyError is raised" do
+      expect{ places }.to raise_error(Geogle::InvalidKeyError)
     end
   end
 end

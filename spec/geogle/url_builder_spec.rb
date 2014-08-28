@@ -4,6 +4,7 @@ describe Geogle::UrlBuilder do
   let(:params) do
     {
       address: "Street FooBar",
+      language: "de",
       sensor:  true
     }
   end
@@ -13,7 +14,7 @@ describe Geogle::UrlBuilder do
     let(:business_attrs) { {} }
 
     it "the built url doesn't contain a query param signature" do
-      expect(built_url.to_s).to eq("https://www.foo.com?address=Street+FooBar&sensor=true")
+      expect(built_url.to_s).to eq("https://www.foo.com?address=Street+FooBar&language=de&sensor=true")
     end
   end
 
@@ -26,7 +27,7 @@ describe Geogle::UrlBuilder do
     end
 
     it "the built url contains a query param signature" do
-      expect(built_url).to eq("https://www.foo.com?client=gme-clientid&address=Street+FooBar&sensor=true&signature=JiUf5yTKyPSuD8TebiKdA5kg-kg=\n")
+      expect(built_url).to eq("https://www.foo.com?client=gme-clientid&address=Street+FooBar&language=de&sensor=true&signature=1klekRivPNXr3vOpOixX16LNGuI=\n")
     end
   end
 end

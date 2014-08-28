@@ -15,6 +15,7 @@ module Geogle
 
     def request(url, params)
       response = @conn.get(UrlBuilder.new(url, @args).build(params))
+      raise InvalidKeyError if response.status == 403
       body = JSON.parse(response.body)
       ErrorHandler.check(body['status'])
       body
