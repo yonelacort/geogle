@@ -1,11 +1,9 @@
 # Geogle
 
-Still in development!
-
-[![wercker status](https://app.wercker.com/status/6122e4f0966ee255949e2eb465aefd10/m "wercker status")](https://app.wercker.com/project/bykey/6122e4f0966ee255949e2eb465aefd10)
-
 Ruby wrapper for the Geocoding and Directions services provided from the Google Maps API.
 
+[![wercker status](https://app.wercker.com/status/6122e4f0966ee255949e2eb465aefd10/m "wercker status")](https://app.wercker.com/project/bykey/6122e4f0966ee255949e2eb465aefd10)
+[![Gem Version](https://badge.fury.io/rb/geogle.svg)](http://badge.fury.io/rb/geogle)
 
 ## Installation
 
@@ -75,28 +73,37 @@ Both methods return an array of Geogle::Model::Place. Each place is composed by:
     * **country_code**: String
     * **formatted**: String
 
+
 ### By address without an account
 
-    $ client = Geogle::Geocoder.new({ sensor: false, language: "es" })
-    $ client.address("Blasco Ibañez, Valencia")
+```ruby
+client = Geogle::Geocoder.new({ sensor: false, language: "es" })
+client.address("Blasco Ibañez, Valencia")
+```
 
 ### By address making use of the components
 
-    $ client = Geogle::Geocoder.new({ sensor: false, language: "es" })
-    $ components = { country: 'ES' }
-    $ client.address("Blasco Ibañez, Valencia", components)
+```ruby
+client = Geogle::Geocoder.new({ sensor: false, language: "es" })
+components = { country: 'ES' }
+client.address("Blasco Ibañez, Valencia", components)
+```
 
   Available components to be used can be found here:
   https://developers.google.com/maps/documentation/geocoding/#ComponentFiltering
 
 ### Reverse geocoding (by latitude and longitude)
 
-    $ Geogle::Geocoder.new.latlng(39.5073225, -0.2914778)
+```ruby
+Geogle::Geocoder.new.latlng(39.5073225, -0.2914778)
+```
 
 ### Using a business account
 
-    $ client = Geogle::Geocoder.new({ client_id: "gme-client-id", crypto_key: "crypto-key" })
-    $ client.latlng(39.5073225, -0.2914778)
+```ruby
+client = Geogle::Geocoder.new({ client_id: "gme-client-id", crypto_key: "crypto-key" })
+client.latlng(39.5073225, -0.2914778)
+```
 
   The signature required to do the request will be included in the URL.
 
