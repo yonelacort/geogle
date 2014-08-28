@@ -74,14 +74,14 @@ Both methods return an array of Geogle::Model::Place. Each place is composed by:
     * **formatted**: String
 
 
-### By address without an account
+#### By address without an account
 
 ```ruby
 client = Geogle::Geocoder.new({ sensor: false, language: "es" })
 client.address("Blasco Ibañez, Valencia")
 ```
 
-### By address making use of the components
+#### By address making use of the components
 
 ```ruby
 client = Geogle::Geocoder.new({ sensor: false, language: "es" })
@@ -92,13 +92,13 @@ client.address("Blasco Ibañez, Valencia", components)
   Available components to be used can be found here:
   https://developers.google.com/maps/documentation/geocoding/#ComponentFiltering
 
-### Reverse geocoding (by latitude and longitude)
+#### Reverse geocoding (by latitude and longitude)
 
 ```ruby
 Geogle::Geocoder.new.latlng(39.5073225, -0.2914778)
 ```
 
-### Using a business account
+#### Using a business account
 
 ```ruby
 client = Geogle::Geocoder.new({ client_id: "gme-client-id", crypto_key: "crypto-key" })
@@ -111,14 +111,14 @@ client.latlng(39.5073225, -0.2914778)
 
 Still in development!
 
-## Search using address names for origin and destination
+#### Search using address names for origin and destination
 
 ```ruby
 client = Geogle::Directions.new
 client.search("Berlin", "Munich", { region: "de" })
 ```
 
-## Search using geo-locations for origin and destination
+#### Search using geo-locations for origin and destination
 
 ```ruby
 client = Geogle::Directions.new
