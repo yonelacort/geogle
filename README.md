@@ -31,14 +31,14 @@ When creating the Geogle::Geocoder these are the setting parameters:
 
 * **sensor**:
     * **true**
-    * **false**(default)
+    * **false** (default)
 * **language**: ar, eu, bg, bn, ca, cs, da, de, el, en, en-AU, en-GB, es, eu, fa, fi, fil, fr, gl, gu, hi, hr, hu, id, it, iw, ja, kn, ko, lt, lv, ml, mr, nl, no, pl, pt, pt-BR, pt-PT, ro, ru, sk, sl, sr, sv, tl, ta, te, th, tr, uk, vi, zh-CN, zh-TW
 * **raw**:
     * **true**: returns the raw json that comes in the body from the response.
-    * **false**(default): returns the object created with auxiliar funtions.
+    * **false** (default): returns the object created with auxiliar funtions.
 
-* **client_id**(required for business API): ID of the client. It starts with "gme-" prefix.
-* **crypto_key**(required for business API): Criptographic key.
+* **client_id** (required for business API): ID of the client. It starts with "gme-" prefix.
+* **crypto_key** (required for business API): Criptographic key.
 
 Here's more information about Google Maps API for Business:
 https://developers.google.com/maps/documentation/business/webservices
@@ -110,7 +110,7 @@ client.latlng(39.5073225, -0.2914778)
 
 ### Setting parameters
 
-The same as **Geocode*.
+The same as with **Geocode**.
 
 #### Data model
 
@@ -139,7 +139,7 @@ Return an array of Geogle::Model::Route. Each route is composed by:
 * **Route**:
     * **summary**: String
     * **legs**: Array[Leg]
-    * **waypoint_order**:Array[Integer]
+    * **waypoint_order**: Array[Integer]
     * **bounds**: Area
     * **copyrights**: String
     * **warnings**: Array[String]
