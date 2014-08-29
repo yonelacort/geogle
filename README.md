@@ -115,14 +115,14 @@ Still in development!
 
 ```ruby
 client = Geogle::Directions.new
-client.search("Berlin", "Munich", { region: "de" })
+client.routes("Berlin", "Munich", { region: "de" })
 ```
 
 ## Search using geo-locations for origin and destination
 
 ```ruby
 client = Geogle::Directions.new
-client.search("39.4699889,-0.3759178", "40.4167158,-3.7037799")
+client.routes("39.4699889,-0.3759178", "40.4167158,-3.7037799")
 ```
 
 

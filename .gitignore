@@ -16,4 +16,6 @@ test/tmp
 test/version_tmp
 tmp
 spec/integration/business_geocoder_spec.rb
+spec/integration/business_directions_spec.rb
 spec/fixtures/cassettes/business_geocode_by_address.yml
+spec/fixtures/cassettes/business_directions.yml

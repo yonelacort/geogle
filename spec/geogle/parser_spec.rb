@@ -155,7 +155,7 @@ describe 'Parser' do
     describe 'routes' do
       let(:routes) do
         VCR.use_cassette('directions_by_address') do
-          Geogle::Directions.new.search("Valencia", "Madrid", { region: "es" })
+          Geogle::Directions.new.routes("Valencia", "Madrid", { region: "es" })
         end
       end
 

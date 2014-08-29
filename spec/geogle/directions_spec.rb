@@ -1,8 +1,9 @@
 describe Geogle::Directions do
   describe 'searching by address' do
+    let(:settings) { {} }
     let(:routes) do
       VCR.use_cassette('directions_by_address') do
-        described_class.new.search("Valencia", "Madrid", { region: "es" })
+        described_class.new(settings).routes("Valencia", "Madrid", { region: "es" })
       end
     end
 
@@ -18,7 +19,7 @@ describe Geogle::Directions do
   describe 'searching by geo-location' do
     let(:routes) do
       VCR.use_cassette('directions_by_latlng') do
-        described_class.new.search("39.4699889,-0.3759178", "40.4167158,-3.7037799", { region: "es" })
+        described_class.new.routes("39.4699889,-0.3759178", "40.4167158,-3.7037799", { region: "es" })
       end
     end
 
@@ -34,7 +35,7 @@ describe Geogle::Directions do
   describe 'searching by address and no results' do
     let(:routes) do
       VCR.use_cassette('directions_by_address_no_results') do
-        described_class.new.search("Valencia", "New york")
+        described_class.new.routes("Valencia", "New york")
       end
     end
 

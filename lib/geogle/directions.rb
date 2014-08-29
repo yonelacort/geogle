@@ -2,7 +2,7 @@
 
 module Geogle
   class Directions < Base
-    def search(origin, destination, options = {})
+    def routes(origin, destination, options = {})
       params = @parametizer.directions(origin, destination, options)
       body = request(URL::DIRECTIONS, params)
       Parser.routes(body["routes"])
