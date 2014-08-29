@@ -145,14 +145,14 @@ Return an array of Geogle::Model::Route. Each route is composed by:
     * **warnings**: Array[String]
 
 
-## Search using address names for origin and destination
+### Search using address names for origin and destination
 
 ```ruby
 client = Geogle::Directions.new
 client.routes("Berlin", "Munich", { region: "de" })
 ```
 
-## Search using geo-locations for origin and destination
+### Search using geo-locations for origin and destination
 
 ```ruby
 client = Geogle::Directions.new
