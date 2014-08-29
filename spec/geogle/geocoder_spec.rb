@@ -1,8 +1,9 @@
 describe Geogle::Geocoder do
   describe 'searching by address' do
+    let(:settings) { {} }
     let(:places) do
       VCR.use_cassette('geocode_by_address') do
-        described_class.new.address('Valencia', { country: 'ES' })
+        described_class.new(settings).address('Valencia', { country: 'ES' })
       end
     end
 
@@ -11,8 +12,17 @@ describe Geogle::Geocoder do
     end
 
     it "each element is Geogle::Model::Place" do
-        expect(places.first).to be_kind_of(Geogle::Model::Place)
+      expect(places.first).to be_kind_of(Geogle::Model::Place)
+    end
+
+    context "when raw is set to true" do
+      let(:settings) { { raw: true } }
+
+      it "returns the raw results in the body in JSON format" do
+        expect(places).to be_kind_of(Array)
+        expect(places.first).to include("geometry")
       end
+    end
   end
 
   describe 'searching with a non-default locale' do

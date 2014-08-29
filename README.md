@@ -21,46 +21,45 @@ Or install it yourself as:
 
 ## Usage
 
-### Geocoding
+## Geocoding
 Google geocoding documentation:
 https://developers.google.com/maps/documentation/geocoding/
 
-When creating the Geogle::Geocoder instance you can pass:
+### Setting parameters
 
-* **sensor**: true or false (false by default)
-* **language**: ("en" by default).
+When creating the Geogle::Geocoder these are the setting parameters:
 
-In case you wanna use Google Maps API for Business, you'll need to pass the following attributes in order to sign the URL.
-* **client_id**: ID of the client. It starts with "gme-" prefix.
-* **crypto_key**: Criptographic key.
+* **sensor**:
+    * **true**
+    * **false**(default)
+* **language**: ar, eu, bg, bn, ca, cs, da, de, el, en, en-AU, en-GB, es, eu, fa, fi, fil, fr, gl, gu, hi, hr, hu, id, it, iw, ja, kn, ko, lt, lv, ml, mr, nl, no, pl, pt, pt-BR, pt-PT, ro, ru, sk, sl, sr, sv, tl, ta, te, th, tr, uk, vi, zh-CN, zh-TW
+* **raw**:
+    * **true**: returns the raw json that comes in the body from the response.
+    * **false**(default): returns the object created with auxiliar funtions.
+
+* **client_id**(required for business API): ID of the client. It starts with "gme-" prefix.
+* **crypto_key**(required for business API): Criptographic key.
 
 Here's more information about Google Maps API for Business:
 https://developers.google.com/maps/documentation/business/webservices
 
-There are two methods that can be called:
-* **address**: Geocoding by name of the location.
-* **latlng**:  Reverse geocode.
+#### Data model
 
 Both methods return an array of Geogle::Model::Place. Each place is composed by:
-* **geometry**:
-    * **location**:
-        * **lat**: Float
-        * **lng**: Float
+
+* **Coordinates**:
+    * **lat**: Float
+    * **lng**: Float
+
+* **Area**:
+    * **northeast**: Coordinates
+    * **southwest**: Coordinates
+
+* **Geometry**:
+    * **location**: Coordinates
     * **location_type**: String
-    * **bounds**:
-        * **northeast**:
-            * **lat**: Float
-            * **lng**: Float
-        * **southwest**:
-            * **lat**: Float
-            * **lng**: Float
-    * **viewport**:
-        * **northeast**:
-            * **lat**: Float
-            * **lng**: Float
-        * **southwest**:
-            * **lat**: Float
-            * **lng**: Float
+    * **bounds**: Area
+    * **viewport**: Area
 * **address**:
     * **street_number**: String
     * **street**: String
@@ -105,11 +104,46 @@ client = Geogle::Geocoder.new({ client_id: "gme-client-id", crypto_key: "crypto-
 client.latlng(39.5073225, -0.2914778)
 ```
 
-  The signature required to do the request will be included in the URL.
+  The signature required to do the request will be appended in the URL.
 
-### Directions
+## Directions
 
-Still in development!
+### Setting parameters
+
+The same as **Geocode*.
+
+#### Data model
+
+Return an array of Geogle::Model::Route. Each route is composed by:
+
+* **Time**:
+    * **value**: Integer
+    * **text**: String
+    * **time_zone**: String
+
+* **TextValue**:
+    * **value**: Integer
+    * **text**: String
+
+* **Leg**:
+    * **steps**: Step
+    * **distance**: TextValue
+    * **duration**: TextValue
+    * **arrival_time**: Time
+    * **departure_time**: Time
+    * **start_address**: String
+    * **end_address**: String
+    * **start_location**: Coordinates
+    * **end_location**: Coordinates
+
+* **Route**:
+    * **summary**: String
+    * **legs**: Array[Leg]
+    * **waypoint_order**:Array[Integer]
+    * **bounds**: Area
+    * **copyrights**: String
+    * **warnings**: Array[String]
+
 
 ## Search using address names for origin and destination
 

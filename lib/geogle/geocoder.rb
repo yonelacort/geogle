@@ -14,6 +14,7 @@ module Geogle
 
     def executor(method, arg1, arg2)
       body = request(URL::GEOCODE, @parametizer.send(method, arg1, arg2))
+      return body["results"] if @raw
       Parser.places(body["results"])
     end
   end

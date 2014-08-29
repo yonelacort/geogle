@@ -8,7 +8,7 @@ module Geogle
     def initialize(settings = {})
       @settings    = settings
       @parametizer = Parametizer.new(settings)
-      # @raw         = settings[:raw] || false
+      @raw         = settings[:raw] || false
     end
 
     protected

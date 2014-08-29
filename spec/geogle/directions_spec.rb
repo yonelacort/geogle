@@ -14,6 +14,15 @@ describe Geogle::Directions do
     it "each element is Geogle::Model::Route" do
       expect(routes.first).to be_kind_of(Geogle::Model::Route)
     end
+
+    context "when raw is set to true" do
+      let(:settings) { { raw: true } }
+
+      it "returns the raw results in the body in JSON format" do
+        expect(routes).to be_kind_of(Array)
+        expect(routes.first).to include("legs")
+      end
+    end
   end
 
   describe 'searching by geo-location' do
