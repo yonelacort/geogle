@@ -108,6 +108,8 @@ client.latlng(39.5073225, -0.2914778)
 
 ## Directions
 
+Google directions documentation: https://developers.google.com/maps/documentation/directions/
+
 ### Setting parameters
 
 The same as with **Geocode**.
