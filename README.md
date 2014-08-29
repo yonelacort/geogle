@@ -1,7 +1,6 @@
 # Geogle
 
 [![wercker status](https://app.wercker.com/status/6122e4f0966ee255949e2eb465aefd10/s "wercker status")](https://app.wercker.com/project/bykey/6122e4f0966ee255949e2eb465aefd10)
-
 [![Gem Version](https://badge.fury.io/rb/geogle.svg)](http://badge.fury.io/rb/geogle)
 
 Ruby wrapper for the Geocoding and Directions services provided from the Google Maps API.
