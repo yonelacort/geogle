@@ -115,6 +115,19 @@ Google directions documentation: https://developers.google.com/maps/documentatio
 
 The same as with **Geocode**.
 
+### Options
+
+* **mode**: supporterd modes of transport (bicycling|walking|driving).
+* **waypoints**: specifies an array of waypoints to alter a route by routing it through the specified location.
+* **alternatives**: if `true` returns more than one route.
+* **avoid**:
+    * **tolls**: the route should avoid toll roads/bridges.
+    * **highways**: the route should avoid highways,
+* **units**:
+    * **metric**: usage of metric system, returning distances in meters and kilometers.
+    * **imperial**: usage of imperial system (British), returning distances in miles and feet.
+* **region**: the code of the country to search in.
+
 #### Data model
 
 Return an array of Geogle::Model::Route. Each route is composed by:
@@ -151,8 +164,9 @@ Return an array of Geogle::Model::Route. Each route is composed by:
 ### Search using address names for origin and destination
 
 ```ruby
+options = { region: "de", mode: "driving" }
 client = Geogle::Directions.new
-client.routes("Berlin", "Munich", { region: "de" })
+client.routes("Berlin", "Munich", options)
 ```
 
 ### Search using geo-locations for origin and destination

@@ -198,11 +198,11 @@ describe 'Parser' do
             let(:southwest) { bounds.southwest }
 
             it "has latitude" do
-              expect(southwest.lat).to eq(39.4289182)
+              expect(southwest.lat).to eq(39.4289607)
             end
 
             it "has longitude" do
-              expect(southwest.lng).to eq(-3.7046622)
+              expect(southwest.lng).to eq(-3.7047624)
             end
           end
 
@@ -246,7 +246,7 @@ describe 'Parser' do
             let(:distance) { leg.distance }
 
             it "value" do
-              expect(distance.value).to eq(355097)
+              expect(distance.value).to eq(355040)
             end
 
             it "text" do
@@ -258,11 +258,11 @@ describe 'Parser' do
             let(:duration) { leg.duration }
 
             it "value" do
-              expect(duration.value).to eq(11866)
+              expect(duration.value).to eq(12745)
             end
 
             it "text" do
-              expect(duration.text).to eq("3 hours 18 mins")
+              expect(duration.text).to eq("3 hours 32 mins")
             end
           end
 

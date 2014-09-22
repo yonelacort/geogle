@@ -30,6 +30,7 @@ module Geogle
       options = {
         origin:         origin,
         destination:    destination,
+        mode:           params[:mode] || "driving",
         waypoints:      waypoints.join("|"),
         alternatives:   params[:alternatives],
         avoid:          params[:avoid],

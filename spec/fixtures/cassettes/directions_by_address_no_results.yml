@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://maps.googleapis.com/maps/api/directions/json?destination=New%20york&origin=Valencia&sensor=false
+    uri: https://maps.googleapis.com/maps/api/directions/json?destination=New%20york&mode=driving&origin=Valencia&sensor=false
     body:
       encoding: US-ASCII
       string: ''
@@ -23,9 +23,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 28 Aug 2014 22:03:33 GMT
+      - Mon, 22 Sep 2014 09:21:14 GMT
       Expires:
-      - Fri, 29 Aug 2014 22:03:33 GMT
+      - Tue, 23 Sep 2014 09:21:14 GMT
       Cache-Control:
       - public, max-age=86400
       Vary:
@@ -37,7 +37,7 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       Alternate-Protocol:
-      - 443:quic
+      - 443:quic,p=0.002
       Transfer-Encoding:
       - chunked
     body:
@@ -48,5 +48,5 @@ http_interactions:
            "status" : "ZERO_RESULTS"
         }
     http_version: 
-  recorded_at: Thu, 28 Aug 2014 22:03:33 GMT
-recorded_with: VCR 2.8.0
+  recorded_at: Mon, 22 Sep 2014 09:21:14 GMT
+recorded_with: VCR 2.9.3
