@@ -159,6 +159,12 @@ Return an array of Geogle::Model::Route. Each route is composed by:
     * **bounds**: Area
     * **copyrights**: String
     * **warnings**: Array[String]
+    * helper methods:
+      * **duration**: Total duration of all legs.
+      * **distance**: Total distance of all legs.
+      * **origin**: Name of starting address.
+      * **destination**: Name of destination address.
+      * **path**: Array of geo-location points that represents the entire path of all legs.
 
 
 ### Search using address names for origin and destination
