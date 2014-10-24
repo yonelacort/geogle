@@ -16,7 +16,8 @@ module Geogle
       attribute :start_location,    Coordinates
       attribute :end_location,      Coordinates
       attribute :travel_mode,       String
-      # Only travel_mode is transit
+      attribute :polyline,          Hash
+      # Only when travel_mode is transit
       # attribute :sub_steps,         String
       # attribute :transit_details,   String
     end
