@@ -38,7 +38,8 @@ module Geogle
         region:         params[:region],
         departure_time: params[:departure_time],
         arrival_time:   params[:arrival_time],
-        sensor:         @sensor
+        sensor:         @sensor,
+        language:       @language
       }
       compact_hash(options)
     end
