@@ -1,23 +1,26 @@
 describe Geogle::Model::Leg do
-  let(:route) do
-    VCR.use_cassette('directions_by_address') do
-      Geogle::Directions.new.routes("Valencia", "Madrid", { region: "es" }).first
-    end
+  let(:leg) do
+    described_class.new({
+      duration: {text: "duration", value: 11756},
+      distance: {text: "distance", value: 355055},
+      start_address: "Valencia, Valencia, Spain",
+      end_address: "Madrid, Madrid, Spain"
+    } )
   end
 
   it "duration" do
-    expect(route.duration).to eq(12745)
+    expect(leg.duration.value).to eq(11756)
   end
 
   it "distance" do
-    expect(route.distance).to eq(355040)
+    expect(leg.distance.value).to eq(355055)
   end
 
   it "origin" do
-    expect(route.origin).to eq("Valencia, Valencia, Spain")
+    expect(leg.start_address).to eq("Valencia, Valencia, Spain")
   end
 
   it "destination" do
-    expect(route.destination).to eq("Madrid, Madrid, Spain")
+    expect(leg.end_address).to eq("Madrid, Madrid, Spain")
   end
 end

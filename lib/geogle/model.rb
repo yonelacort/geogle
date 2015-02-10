@@ -7,7 +7,11 @@ module Geogle
     require "geogle/model/area"
     require "geogle/model/coordinates"
     require "geogle/model/geometry"
-
+    require 'geogle/model/stop'
+    require 'geogle/model/agency'
+    require "geogle/model/vehicle"
+    require "geogle/model/line"
+    require "geogle/model/transit_details"
     require "geogle/model/route"
     require "geogle/model/leg"
     require "geogle/model/step"

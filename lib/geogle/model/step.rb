@@ -19,7 +19,7 @@ module Geogle
       attribute :polyline,          Hash
       # Only when travel_mode is transit
       # attribute :sub_steps,         String
-      # attribute :transit_details,   String
+      attribute :transit_details,   TransitDetails
     end
   end
 end

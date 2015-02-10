@@ -27,7 +27,7 @@ describe 'Parser' do
       end
 
       it "locality" do
-        expect(place.locality).to eq("Valencia")
+        expect(place.locality).to eq("València")
       end
 
       it "city" do
@@ -35,7 +35,7 @@ describe 'Parser' do
       end
 
       it "state" do
-        expect(place.state).to eq("Valencian Community")
+        expect(place.state).to eq("Comunidad Valenciana")
       end
 
       it "country" do
@@ -118,15 +118,15 @@ describe 'Parser' do
         end
 
         it "has a locality" do
-          expect(address.locality).to eq("Valencia")
+          expect(address.locality).to eq("València")
         end
 
         it "has a area_level_1" do
-          expect(address.area_level_1).to eq("Valencian Community")
+          expect(address.area_level_1).to eq("Comunidad Valenciana")
         end
 
         it "has a area_level_1_code" do
-          expect(address.area_level_1_code).to eq("Valencian Community")
+          expect(address.area_level_1_code).to eq("Comunidad Valenciana")
         end
 
         it "has a area_level_2" do
@@ -146,7 +146,7 @@ describe 'Parser' do
         end
 
         it "has a formatted" do
-          expect(address.formatted).to eq("Plaza Ayuntamiento, S/N, 46002 Valencia, Valencia, Spain")
+          expect(address.formatted).to eq("Plaza Ayuntamiento, S/N, 46002 València, Valencia, Spain")
         end
       end
     end
@@ -179,7 +179,7 @@ describe 'Parser' do
       end
 
       it "copyrights" do
-        expect(route.copyrights).to eq("Map data ©2014 Google, basado en BCN IGN España")
+        expect(route.copyrights).to eq("Map data ©2015 Google, basado en BCN IGN España")
       end
 
       describe "warnings" do
@@ -198,11 +198,11 @@ describe 'Parser' do
           let(:southwest) { bounds.southwest }
 
           it "has latitude" do
-            expect(southwest.lat).to eq(39.4289607)
+            expect(southwest.lat).to eq(39.4289552)
           end
 
           it "has longitude" do
-            expect(southwest.lng).to eq(-3.7047624)
+            expect(southwest.lng).to eq(-3.7050818)
           end
         end
 
@@ -246,7 +246,7 @@ describe 'Parser' do
           let(:distance) { leg.distance }
 
           it "value" do
-            expect(distance.value).to eq(355040)
+            expect(distance.value).to eq(355055)
           end
 
           it "text" do
@@ -258,11 +258,11 @@ describe 'Parser' do
           let(:duration) { leg.duration }
 
           it "value" do
-            expect(duration.value).to eq(12745)
+            expect(duration.value).to eq(11756)
           end
 
           it "text" do
-            expect(duration.text).to eq("3 hours 32 mins")
+            expect(duration.text).to eq("3 hours 16 mins")
           end
         end
 
