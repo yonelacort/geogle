@@ -13,6 +13,10 @@ module Geogle
       def to_s
         "#{lat},#{lng}"
       end
+
+      def to_a
+        [lat, lng]
+      end
     end
   end
 end

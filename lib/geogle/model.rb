@@ -17,5 +17,6 @@ module Geogle
     require "geogle/model/step"
     require "geogle/model/time"
     require "geogle/model/text_value"
+    require "geogle/model/polyline"
   end
 end
