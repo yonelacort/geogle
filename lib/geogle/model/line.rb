@@ -10,6 +10,8 @@ module Geogle
       attribute :agencies, Array[Agency]
       attribute :short_name, String
       attribute :vehicle, Vehicle
+      attribute :color, String
+      attribute :text_color, String
     end
   end
 end
