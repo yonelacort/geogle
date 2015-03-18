@@ -27,21 +27,16 @@ module Geogle
 
     def directions(origin, destination, params)
       waypoints = params[:waypoints] || []
-      options = {
+      params.merge!(
         origin:         origin,
         destination:    destination,
         mode:           params[:mode] || "driving",
         waypoints:      waypoints.join("|"),
-        alternatives:   params[:alternatives],
-        avoid:          params[:avoid],
-        units:          params[:units],
-        region:         params[:region],
-        departure_time: params[:departure_time],
-        arrival_time:   params[:arrival_time],
-        sensor:         @sensor,
-        language:       @language
-      }
-      compact_hash(options)
+        sensor: @sensor,
+        language: @language
+
+        )
+      compact_hash(params)
     end
 
     private
