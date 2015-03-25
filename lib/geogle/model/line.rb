@@ -6,8 +6,8 @@ module Geogle
   module Model
     class Line
       include Virtus.model
-
       attribute :agencies, Array[Agency]
+      attribute :name, String
       attribute :short_name, String
       attribute :vehicle, Vehicle
       attribute :color, String

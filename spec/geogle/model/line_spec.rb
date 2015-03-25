@@ -4,6 +4,7 @@ describe Geogle::Model::Line do
       "agencies"=>[{"name"=>"RATP - SNCF"}],
       "color"=>"#c5a3cc",
       "short_name"=>"8",
+      "name"=>"Line 8",
       "text_color"=>"#000000",
       "vehicle"=>{}
     }
@@ -21,5 +22,9 @@ describe Geogle::Model::Line do
 
   it "has text color" do
     expect(line.text_color).to eq("#000000")
+  end
+
+  it "has name" do
+    expect(line.name).to eq("Line 8")
   end
 end
