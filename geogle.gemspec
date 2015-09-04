@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'virtus'
   spec.add_dependency 'ruby-hmac'
+  spec.add_dependency 'polylines'
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"

@@ -55,7 +55,13 @@ module Geogle::Model
       expect(route.destination).to eq("Moon")
     end
 
-    describe "path" do
+    describe "#steps" do
+      it "returns all steps of all legs combined" do
+        expect(route.steps).to contain_exactly(step1, step2, step3, step4)
+      end
+    end
+
+    describe "#path" do
       it "there's one more point than steps exists" do
         expect(route.path.count).to eq(5)
       end

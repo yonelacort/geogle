@@ -3,6 +3,7 @@
 require 'virtus'
 require 'geogle/model/coordinates'
 require 'geogle/model/text_value'
+require 'geogle/model/polyline'
 
 module Geogle
   module Model
@@ -16,9 +17,13 @@ module Geogle
       attribute :start_location,    Coordinates
       attribute :end_location,      Coordinates
       attribute :travel_mode,       String
-      # Only travel_mode is transit
-      # attribute :sub_steps,         String
-      # attribute :transit_details,   String
+      attribute :polyline,          Polyline
+      attribute :steps,             [Step]
+      attribute :transit_details,   TransitDetails
+
+      def sub_steps
+        steps
+      end
     end
   end
 end

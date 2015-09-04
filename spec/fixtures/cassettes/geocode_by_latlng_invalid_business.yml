@@ -7,12 +7,14 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
-      User-Agent:
-      - Faraday v0.9.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - maps.googleapis.com
   response:
     status:
       code: 403
@@ -21,7 +23,7 @@ http_interactions:
       Content-Type:
       - text/plain; charset=UTF-8
       Date:
-      - Thu, 28 Aug 2014 12:31:17 GMT
+      - Tue, 10 Feb 2015 13:32:52 GMT
       Pragma:
       - no-cache
       Expires:
@@ -37,14 +39,19 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       Alternate-Protocol:
-      - 443:quic
+      - 443:quic,p=0.02
+      Accept-Ranges:
+      - none
+      Vary:
+      - Accept-Encoding
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: 'Unable to authenticate the request. Provided ''signature'' is not valid
-        for the provided client ID, or the provided ''client'' is not valid. Learn
-        more: https://developers.google.com/maps/documentation/business/webservices/auth'
+      string: |-
+        Unable to authenticate the request. Provided 'signature' is not valid for the provided client ID, or the provided 'client' is not valid.
+        The signature was checked against the URL: /maps/api/geocode/json?client=gme-foo&latlng=39.4699075%2C-0.3762881&language=en&sensor=false&signature=hDQSukmnhjyDe6y81ph3C_tbs_M=
+        If this does not match the URL you requested, please ensure that your request is URL encoded correctly. Learn more: https://developers.google.com/maps/documentation/business/webservices/auth
     http_version: 
-  recorded_at: Thu, 28 Aug 2014 12:31:17 GMT
-recorded_with: VCR 2.8.0
+  recorded_at: Tue, 10 Feb 2015 13:32:57 GMT
+recorded_with: VCR 2.9.3

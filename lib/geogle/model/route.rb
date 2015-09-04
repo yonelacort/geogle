@@ -11,7 +11,7 @@ module Geogle
       include Virtus.model
 
       attribute :summary,           String
-      attribute :legs,              Array[Leg]
+      attribute :legs,              Array[Leg] # Note: for Google directions without waypoints there is always a single leg.
       attribute :waypoint_order,    Array[Integer]
       attribute :overview_polyline, String
       attribute :bounds,            Area
@@ -38,9 +38,13 @@ module Geogle
         legs.last.end_address
       end
 
+      def steps
+        legs.map(&:steps).flatten
+      end
+
       # Array of points that represents the entire path
       def path
-        coordinates = legs.map(&:steps).flatten.map(&:start_location)
+        coordinates = steps.map(&:start_location)
         coordinates << legs.last.steps.last.end_location
         coordinates
       end
