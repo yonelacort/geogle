@@ -9,13 +9,13 @@ describe Geogle::Model::TransitDetails do
 
   describe "arrival time" do
     it "is parsed from integer" do
-      expect(transit.arrival_time.to_s).to eq("2015-02-19 12:58:00 +0100")
+      expect(transit.arrival_time).to eq(Time.parse("2015-02-19 12:58:00 +0100"))
     end
   end
 
   describe "departure time" do
     it "is parsed from integer" do
-      expect(transit.departure_time.to_s).to eq("2015-02-19 12:51:00 +0100")
+      expect(transit.departure_time).to eq(Time.parse("2015-02-19 12:51:00 +0100"))
     end
   end
 end

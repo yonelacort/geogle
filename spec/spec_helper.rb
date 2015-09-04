@@ -1,4 +1,4 @@
-# encoding: utf-8
+ENV["TZ"] = "CET"
 
 require 'bundler/setup'
 Bundler.setup
