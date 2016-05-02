@@ -23,6 +23,13 @@ module Geogle
         sum_values(legs.map(&:duration))
       end
 
+      # Total duration in traffic
+      def duration_in_traffic
+        sum_values(legs.map do |leg|
+          leg.duration_in_traffic.nil? ? leg.duration : leg.duration_in_traffic
+        end)
+      end
+
       # Total distance
       def distance
         sum_values(legs.map(&:distance))

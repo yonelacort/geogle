@@ -12,15 +12,16 @@ module Geogle
     class Leg
       include Virtus.model
 
-      attribute :steps,          Array[Step]
-      attribute :distance,       TextValue
-      attribute :duration,       TextValue
-      attribute :arrival_time,   Time
-      attribute :departure_time, Time
-      attribute :start_address,  String
-      attribute :end_address,    String
-      attribute :start_location, Coordinates
-      attribute :end_location,   Coordinates
+      attribute :steps,               Array[Step]
+      attribute :distance,            TextValue
+      attribute :duration,            TextValue
+      attribute :duration_in_traffic, TextValue
+      attribute :arrival_time,        Time
+      attribute :departure_time,      Time
+      attribute :start_address,       String
+      attribute :end_address,         String
+      attribute :start_location,      Coordinates
+      attribute :end_location,        Coordinates
     end
   end
 end
