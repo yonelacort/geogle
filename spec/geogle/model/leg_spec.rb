@@ -2,6 +2,7 @@ describe Geogle::Model::Leg do
   let(:leg) do
     described_class.new({
       duration: {text: "duration", value: 11756},
+      duration_in_traffic: {text: "duration_in_traffic", value: 12756},
       distance: {text: "distance", value: 355055},
       start_address: "Valencia, Valencia, Spain",
       end_address: "Madrid, Madrid, Spain"
@@ -10,6 +11,10 @@ describe Geogle::Model::Leg do
 
   it "duration" do
     expect(leg.duration.value).to eq(11756)
+  end
+
+  it "duration_in_traffic" do
+    expect(leg.duration.value).to eq(12756)
   end
 
   it "distance" do

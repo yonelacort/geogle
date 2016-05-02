@@ -31,6 +31,7 @@ module Geogle::Model
     let(:leg2) do
       Leg.new(
         duration: text_value(20),
+        duration_in_traffic: text_value(25),
         distance: text_value(30),
         end_address: "Moon",
         steps: [step3, step4]
@@ -41,6 +42,10 @@ module Geogle::Model
 
     it "duration adds the durations of all legs" do
       expect(route.duration).to eq(30)
+    end
+
+    it "duration_in_traffic adds the durations of all legs (or the duration_in_traffic where available)" do
+      expect(route.duration).to eq(35)
     end
 
     it "distance adds the distances of all legs" do

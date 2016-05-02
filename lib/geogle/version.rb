@@ -1,3 +1,3 @@
 module Geogle
-  VERSION = "0.5.4"
+  VERSION = "0.6.1"
 end

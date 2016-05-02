@@ -7,16 +7,18 @@ require 'hmac-sha1'
 
 module Geogle
   class UrlBuilder
-    def initialize(url, business_attrs = {})
+    def initialize(url, attrs = {})
       @url        = url
-      @client_id  = business_attrs[:client_id]
-      @crypto_key = business_attrs[:crypto_key]
+      @client_id  = attrs[:client_id]
+      @crypto_key = attrs[:crypto_key]
+      @key        = attrs[:key]
     end
 
     def build(params)
       uri = URI(@url)
+      params.merge!(key: @key) if @key && !business?
       uri.query = URI.encode_www_form(params)
-      return sign(uri) if is_business?
+      return sign(uri) if business?
       uri
     end
 
@@ -44,7 +46,7 @@ module Geogle
       return Base64.encode64(raw).tr('+/','-_')
     end
 
-    def is_business?
+    def business?
       @client_id && @crypto_key
     end
   end
